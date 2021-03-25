@@ -2,8 +2,8 @@ package utility;
 
 public class Module {
 
-    private static<T extends Comparable<T>>  int partition(List<T>list, int low, int high) {
-        int midpoint= (low + high) / 2;
+    private static <T extends Comparable<T>> int partition(List<T>list, int low, int high) {
+        int midpoint = (low + high) / 2;
         T pivot = list.get(midpoint);
         boolean done = false;
 
@@ -14,6 +14,7 @@ public class Module {
             while (pivot.compareTo(list.get(high)) < 0){
                 --high;
             }
+
             if (high <= low){
                 done = true;
             } else{
@@ -24,19 +25,20 @@ public class Module {
         }
         return high;
     }
+
     public static <T extends Comparable<T>> void quickSort(List<T> list) {
 
         quickSort(list, 0,list.size() - 1);
     }
 
-    private static <T extends Comparable<T>> void quickSort(List<T>  list, int low, int high) {
+    private static <T extends Comparable<T>> void quickSort(List<T> list, int low, int high) {
         int mid;
         if (high <= low){
             return;
         }
         mid = partition(list, low, high);
         quickSort(list, low, mid);
-        quickSort(list, mid+1, high);
+        quickSort(list, mid + 1, high);
     }
 
     public static <T> void swap(List<T> list, int a, int b) {

@@ -2,7 +2,7 @@ package activities;
 
 import utility.List;
 import utility.ArrayList;
-import utility.Module;
+import static utility.Module.quickSort;
 
 public class AlgoProgram {
     public static void main(String[] args) {
