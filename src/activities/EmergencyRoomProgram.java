@@ -19,17 +19,17 @@ public class EmergencyRoomProgram {
         writer.close();
     }
 
-    public static void organize(MyQueue<Patient> wLine) {
-        ArrayList<Patient> list = new ArrayList<Patient>();
+    public static void organize(MyQueue<Patient> waitingLine) {
+        ArrayList<Patient> templist = new ArrayList<Patient>();
 
-        while (!wLine.isEmpty()) {
-            list.add(wLine.remove());
+        while (!waitingLine.isEmpty()) {
+            templist.add(waitingLine.remove());
         }
 
-        quickSort(list);
+        quickSort(templist);
 
-        for (int i = list.size() -1; i > 0; i--) {
-            wLine.add(list.get(i));
+        for (int i = templist.size() - 1; i >= 0; i--) {
+            waitingLine.add(templist.get(i));
         }
 
     }
@@ -39,7 +39,7 @@ public class EmergencyRoomProgram {
         StringBuilder builder = new StringBuilder("\n");
 
         //Initilization of random level of Injury, and random time
-        MyQueue<Patient> pLine = new MyQueue<Patient>();
+        MyQueue<Patient> patientLine = new MyQueue<Patient>();
         Patient mike1 = new Patient("Mike Jones", 42, 315, 2);
         Patient mike2 = new Patient("Mike Green", 6, 750, 4 );
         Patient mike3 = new Patient("Mike Brown", 42,704,4);
@@ -49,21 +49,20 @@ public class EmergencyRoomProgram {
         Patient alan1 = new Patient("Alan Tudela", 59,315,2);
 
         //All people are added randomly into the Queue
-        pLine.add(minh);
-        pLine.add(mike2);
-        pLine.add(sam2);
-        pLine.add(mike3);
-        pLine.add(sam1);
-        pLine.add(mike1);
-        pLine.add(sam2);
-        pLine.add(alan1);
+        patientLine.add(minh);
+        patientLine.add(mike2);
+        patientLine.add(mike3);
+        patientLine.add(sam1);
+        patientLine.add(mike1);
+        patientLine.add(sam2);
+        patientLine.add(alan1);
 
         System.out.println();
-        System.out.println(pLine);
+        System.out.println(patientLine);
         System.out.println("----------------------");
-        organize(pLine);
-        System.out.println(pLine);
-        builder.append(pLine);
+        organize(patientLine);
+        System.out.println(patientLine);
+        builder.append(patientLine);
 
         write(outputLocation, builder);
 

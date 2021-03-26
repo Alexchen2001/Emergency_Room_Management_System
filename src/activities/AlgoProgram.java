@@ -36,7 +36,7 @@ public class AlgoProgram {
         System.out.println();
         System.out.println(list);
 
-        List<Person> plist = new ArrayList<Person>();
+        List<Person> peoplelist = new ArrayList<Person>();
         Person mike1 = new Person("Mike Jones", 42);
         Person mike2 = new Person("Mike Green", 42);
         Person mike3 = new Person("Mike Brown", 42);
@@ -44,18 +44,18 @@ public class AlgoProgram {
         Person sam1 = new Person ("Sam Jones", 26);
         Person minh = new Person("Ming JOnes", 19);
 
-        plist.add(mike3);
-        plist.add(sam1);
-        plist.add(mike2);
-        plist.add(minh);
-        plist.add(mike1);
-        plist.add(sam2);
+        peoplelist.add(mike3);
+        peoplelist.add(sam1);
+        peoplelist.add(mike2);
+        peoplelist.add(minh);
+        peoplelist.add(mike1);
+        peoplelist.add(sam2);
 
-        System.out.println(plist);
-        quickSort(plist);
+        System.out.println(peoplelist);
+        quickSort(peoplelist);
         System.out.println();
-        System.out.println(plist);
-        builder.append(plist);
+        System.out.println(peoplelist);
+        builder.append(peoplelist);
 
         write(outputLocation, builder);
 
