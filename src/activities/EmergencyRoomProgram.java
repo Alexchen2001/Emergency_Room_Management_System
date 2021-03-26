@@ -46,6 +46,7 @@ public class EmergencyRoomProgram {
         Patient sam2 = new Patient("Sam Long", 35,802,1);
         Patient sam1 = new Patient ("Sam Jones", 26,1012,10);
         Patient minh = new Patient("Ming Jones", 19, 505, 5);
+        Patient alan1 = new Patient("Alan Tudela", 59,315,2);
 
         //All people are added randomly into the Queue
         pLine.add(minh);
@@ -54,6 +55,8 @@ public class EmergencyRoomProgram {
         pLine.add(mike3);
         pLine.add(sam1);
         pLine.add(mike1);
+        pLine.add(sam2);
+        pLine.add(alan1);
 
         System.out.println();
         System.out.println(pLine);
