@@ -1,13 +1,15 @@
 package activities;
 
-import utility.List;
+import static utility.Module.quickSort;
+
 import utility.ArrayList;
+import utility.List;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static utility.Module.quickSort;
+
 
 public class AlgoProgram {
 
