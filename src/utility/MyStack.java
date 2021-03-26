@@ -5,24 +5,45 @@ import java.util.NoSuchElementException;
 public class MyStack<E> {
     private Node<E> first;   //Top of the stack
     private Node<E> last;    // bottom of the stack
-    private int     size;
+    private int size;
 
-    public MyStack(){
+    /*******************************************************
+     * creates Stack object.
+     * initilizes Nodes to null and  size to 0.
+     *******************************************************/
+    public MyStack() {
         first = null;
         last = null;
         size = 0;
     }
 
+    /**********************************************
+     * return true, if the stack is empty,
+     * @return boolean value.
+     *********************************************/
+    public boolean isEmpty() {
 
-    public E peak(){
-        if(isEmpty()){
+        return first == null;
+    }
+
+
+    /*****************************************************************
+     * gets the top element in the stack if the stack is not empty.
+     * @return the top (first) element of the Stack
+     ***************************************************************/
+    public E peak() {
+        if (isEmpty()) {
             throw new NoSuchElementException("Stack is Empty");
         }
         return first.data;
     }
 
-    public E pop(){
-        if(isEmpty()){
+    /***************************************************************************
+     * removes the top (first) element of the stack, if the stack is not empty.
+     * @return the top element of the stack
+     ***************************************************************************/
+    public E pop() {
+        if (isEmpty()) {
             throw new NoSuchElementException("Stack is Empty");
         }
         E lastItem = first.data;
@@ -31,11 +52,15 @@ public class MyStack<E> {
         return lastItem;
     }
 
-
-    public E push(E item){
-        Node<E> newNode = new Node(first,item);
+    /************************************************
+     * places given element on the top of the stack.
+     * @param item in stack
+     * @return the top of the stack
+     ********************************************8**/
+    public E push(E item) {
+        Node<E> newNode = new Node(first, item);
         first = newNode;
-        if(isEmpty()){
+        if (isEmpty()) {
             last = newNode;
         }
         size++;
@@ -43,34 +68,23 @@ public class MyStack<E> {
 
     }
 
-
-    /**********************************************
-     * return true, if the stack is empty,
-     * @return boolean value.
-     *********************************************/
-    public boolean isEmpty(){
-
-        return first == null;
-    }
-
     /*********************************************
      * returns the number of elements in the stack.
      * @return size of stack.
      *********************************************/
-    public int size(){
+    public int size() {
 
         return size;
     }
 
-    /**************************************
+    /*****************************************
      * displays the contents of the stack.
-     * @return stack
-     *************************************/
-
-    public String toString(){
-        if (isEmpty()){
+     * @return String representation of stack
+     *****************************************/
+    public String toString() {
+        if (isEmpty()) {
             return "[]";
-        }else{
+        } else {
             ArrayList<E> list = new ArrayList<E>(size);
             for (Node<E> node = first; node != null; node = node.next) {
                 list.add(node.data);
@@ -84,15 +98,15 @@ public class MyStack<E> {
         }
     }
 
-    private static class Node<E>{
+    private static class Node<E> {
         Node<E> next;
-        E       data;
+        E data;
 
-        public Node(E data){
+        public Node(E data) {
             this(null, data);
         }
 
-        public Node(Node<E> next, E data){
+        public Node(Node<E> next, E data) {
             this.next = next;
             this.data = data;
         }

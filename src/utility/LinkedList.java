@@ -129,7 +129,6 @@ public class LinkedList<E> implements List<E>{
      * @param item to search for in list.
      * @return location of item, if found
      ********************************************************************/
-    //Problemo
     public int indexOf(E item) {
         int index = 0;
         if (!isEmpty()) {
@@ -171,10 +170,11 @@ public class LinkedList<E> implements List<E>{
      * @return iterator for list
      **************************************************************/
     public Iterator<E> iterator(){
+
         return new LinkedIterator();
     }
 
-    public Node<E> node(int index){
+    private Node<E> node(int index){
         Node<E> current;
         if (index < size / 2){
             current = first;
@@ -208,7 +208,6 @@ public class LinkedList<E> implements List<E>{
      * @param item to remove from list.
      * @return boolean value
      ***************************************************/
-    //need to do
     public boolean remove( E item) {
 
         return contains(item) && item.equals(remove(indexOf(item)));

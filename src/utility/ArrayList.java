@@ -12,8 +12,8 @@ public class ArrayList<E> implements List<E> {
     /******************************
      * creates array list object
      ******************************/
+    public ArrayList() {
 
-    public ArrayList(){
         this(DEFAULT_CAPACITY);
     }
 
@@ -21,9 +21,9 @@ public class ArrayList<E> implements List<E> {
      * creates array list object for a specific capacity.
      * @param capacity of the maximum list.
      *******************************************************/
-    public ArrayList(int capacity){
+    public ArrayList(int capacity) {
         String message = "capacity cannot be negative capacity";
-        if(capacity < 0){
+        if (capacity < 0) {
             throw new IllegalArgumentException(message);
         }
 
@@ -36,12 +36,11 @@ public class ArrayList<E> implements List<E> {
      * @param item in list
      * @return boolean value if successful.
      ********************************************************/
-
-    public boolean add( E item){
+    public boolean add(E item) {
         int oldSize = size;
-        ensureCapacity(size +1);
+        ensureCapacity(size + 1);
         data[size++] = item;
-        return size == (oldSize+1);
+        return size == (oldSize + 1);
 
     }
 
@@ -50,21 +49,20 @@ public class ArrayList<E> implements List<E> {
      * @param index of item in listl
      * @param item in list
      ****************************************************************/
-
-    public void add(int index, E item){
+    public void add(int index, E item) {
         String message = "index: " + index + ", size: " + size;
-        if(index < 0 || index > size){
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(message);
         }
-        ensureCapacity(size +1);
+        ensureCapacity(size + 1);
         shiftRight(index);
         data[index] = item;
         size++;
     }
 
-    private void checkIndex(int index){
+    private void checkIndex(int index) {
         String message = " index: " + index + ", size: " + size;
-        if (index < 0 || index >= size){
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(message);
         }
     }
@@ -72,19 +70,19 @@ public class ArrayList<E> implements List<E> {
     /*******************************************************
      * clears list of all elements, return size back to zero.
      *******************************************************/
-
-    public void clear(){
+    public void clear() {
         for (int i = 0; i < size; i++) {
             data[i] = null;
         }
-        size  = 0;
+        size = 0;
     }
+
     /***********************************************************************
      * searching for an item and returns true in the array,
      * @param item to search fro in list.
      * @return boolean value
      ********************************************************************/
-    public boolean contains ( E item){
+    public boolean contains(E item) {
         return indexOf(item) != -1;
 
     }
@@ -94,28 +92,26 @@ public class ArrayList<E> implements List<E> {
      * can hold the number of elements specified by the capacity requested.
      * @param capacity for list
      **********************************************************************/
+    @SuppressWarnings("unchecked ")
+    public void ensureCapacity(int capacity) {
 
-    @SuppressWarnings ("unchecked ")
-    public void ensureCapacity(int capacity){
-
-        if (capacity > data.length){
+        if (capacity > data.length) {
             int newLength = Math.max(2 * data.length + 1, capacity);
             E[] newArray = (E[]) new Object[newLength];
 
-            for (int i = 0; i < size ; i++) {
+            for (int i = 0; i < size; i++) {
                 newArray[i] = data[i];
             }
             data = newArray;
         }
     }
 
-    // need to do
     /******************************************
      * return the item on the specified index;
      * @param index
      * @return the data of the index in the list
      *********************************************/
-    public E get(int index){
+    public E get(int index) {
         checkIndex(index);
         return data[index];
     }
@@ -126,9 +122,9 @@ public class ArrayList<E> implements List<E> {
      * @param item to search fro in list.
      * @return location of item, if found
      ********************************************************************/
-    public int indexOf(E item){
-        for (int i = 0; i < size ; i++) {
-            if(data[i].equals(item)){
+    public int indexOf(E item) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(item)) {
                 return i;
             }
         }
@@ -139,7 +135,7 @@ public class ArrayList<E> implements List<E> {
      * return true, if the list is empty,
      * @return boolean value.
      *********************************************/
-    public boolean isEmpty(){
+    public boolean isEmpty() {
 
         return size == 0;
     }
@@ -148,7 +144,8 @@ public class ArrayList<E> implements List<E> {
      * returns an object used to traverse the elements in the list.
      * @return iterator for list
      **************************************************************/
-    public Iterator<E> iterator(){
+    public Iterator<E> iterator() {
+
         return new ArrayIterator();
     }
 
@@ -157,8 +154,7 @@ public class ArrayList<E> implements List<E> {
      * @param index of item in list.
      * @return old value in list.
      ***************************************************/
-
-    public E remove(int index){
+    public E remove(int index) {
         checkIndex(index);
         E oldItem = data[index];
         shiftLeft(index);
@@ -172,18 +168,10 @@ public class ArrayList<E> implements List<E> {
      * @param item to remove from list.
      * @return boolean value
      ***************************************************/
-    //need to do
-    public boolean remove( E item){
+    public boolean remove(E item) {
 
         return contains(item) && item.equals(remove(indexOf(item)));
     }
-
-    private void shiftLeft(int index){
-        for (int i =index; i < size -1; i++) {
-            data[i] = data[i+1];
-        }
-    }
-
 
     /********************************************************************
      * replaces the item at the specified position with the one passed.
@@ -191,8 +179,7 @@ public class ArrayList<E> implements List<E> {
      * @param item that replaces on in list.
      * @return old item in list.
      *******************************************************************/
-    // need to do
-    public E set(int index, E item){
+    public E set(int index, E item) {
         checkIndex(index);
 
         E oldItem = data[index];
@@ -200,9 +187,14 @@ public class ArrayList<E> implements List<E> {
         return oldItem;
     }
 
-    private void shiftRight(int index){
-        for (int i = size; i > index; i--){
-            data[i] = data[i-1];
+    private void shiftLeft(int index) {
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+    }
+    private void shiftRight(int index) {
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
 
         }
     }
@@ -211,7 +203,7 @@ public class ArrayList<E> implements List<E> {
      * returns the number of elements in the list.
      * @return size of list.
      *********************************************/
-    public int size(){
+    public int size() {
 
         return size;
     }
@@ -220,10 +212,10 @@ public class ArrayList<E> implements List<E> {
      * displays the contents of the list
      * @return string representation of  list
      *********************************************/
-    public String toString(){
-        if (size == 0){
+    public String toString() {
+        if (size == 0) {
             return "[]";
-        }else{
+        } else {
             StringBuilder result = new StringBuilder("[" + data[0]);
             for (int i = 0; i < size; i++) {
                 result.append(", ").append(data[i]);
@@ -232,24 +224,26 @@ public class ArrayList<E> implements List<E> {
         }
     }
 
-    private class ArrayIterator implements Iterator<E>{
+    private class ArrayIterator implements Iterator<E> {
         int position;
         boolean isRemovable;
 
-        public ArrayIterator(){
+        public ArrayIterator() {
             position = 0;
             isRemovable = false;
         }
+
         public boolean hasNext() {
+
             return position < size;
         }
 
         public E next() {
             String message = "No such element left";
-            if(!hasNext()){
+            if (!hasNext()) {
                 throw new NoSuchElementException(message);
             }
-            E currentItem =  data[position];
+            E currentItem = data[position];
             position++;
             isRemovable = true;
             return currentItem;
@@ -257,7 +251,7 @@ public class ArrayList<E> implements List<E> {
 
         public void remove() {
             String message = "Unable to remove";
-            if(!isRemovable){
+            if (!isRemovable) {
                 throw new IllegalStateException(message);
             }
             ArrayList.this.remove(--position);
