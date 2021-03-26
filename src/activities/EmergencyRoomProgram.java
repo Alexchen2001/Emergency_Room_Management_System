@@ -11,14 +11,6 @@ import java.io.PrintWriter;
 
 public class EmergencyRoomProgram {
 
-    public static void write(String location, StringBuilder builder) throws IOException {
-        File file           = new File(location);
-        PrintWriter writer  = new PrintWriter(file);
-
-        writer.println(builder);
-        writer.close();
-    }
-
     public static void organize(MyQueue<Patient> waitingLine) {
         ArrayList<Patient> templist = new ArrayList<Patient>();
 
@@ -32,6 +24,14 @@ public class EmergencyRoomProgram {
             waitingLine.add(templist.get(i));
         }
 
+    }
+
+    public static void write(String location, StringBuilder builder) throws IOException {
+        File file           = new File(location);
+        PrintWriter writer  = new PrintWriter(file);
+
+        writer.println(builder);
+        writer.close();
     }
 
     public static void main(String[] args) throws IOException {
@@ -58,9 +58,12 @@ public class EmergencyRoomProgram {
         patientLine.add(alan1);
 
         System.out.println();
+        System.out.println("               Testing");
+        System.out.println("-----------Before rearranging----------");
         System.out.println(patientLine);
-        System.out.println("----------------------");
         organize(patientLine);
+        System.out.println();
+        System.out.println("----------After rearranging------------");
         System.out.println(patientLine);
         builder.append(patientLine);
 

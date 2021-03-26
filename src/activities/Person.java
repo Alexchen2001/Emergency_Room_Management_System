@@ -1,10 +1,10 @@
 package activities;
 
 public class Person implements Comparable<Person>{
-    String firstName;
-    String lastName;
-    int age;
-    int years;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private int years;
 
 
     public Person(String name, int age){
@@ -35,7 +35,7 @@ public class Person implements Comparable<Person>{
 
     public String toString(){
         String _name = String.format("\nName: \t  %s, %s\n", lastName, firstName);
-        String _age = String.format("Age: \t %s\n", age);
+        String _age = String.format("Age: \t \t \t %s\n", age);
         String _retire = String.format("Years To GO! : \t %s\n",years);
         return _name + _age + _retire + "\n";
 

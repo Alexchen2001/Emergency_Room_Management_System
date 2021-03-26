@@ -1,11 +1,11 @@
 package activities;
 
 public class Patient implements Comparable<Patient> {
-    String firstName;
-    String lastName;
-    int age;
-    int arrivalTime;
-    int levelOfInjury;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private int arrivalTime;
+    private int levelOfInjury;
 
     public Patient(String name, int age, int arrivalTime, int levelOfInjury) {
         this.firstName = name.substring(0, name.indexOf(" "));
@@ -28,7 +28,7 @@ public class Patient implements Comparable<Patient> {
 
     public String toString() {
         String _name = String.format(" \nName: \t  %s, %s\n", lastName, firstName);
-        String _age = String.format("Age: \t %s\n", age);
+        String _age = String.format("Age: \t \t \t %s\n", age);
         String _arrivalTime = String.format("Arrival Time: \t %s\n", arrivalTime);
         String _levelOfInjury = String.format("Injury leve: \t %s\n", levelOfInjury);
         return _name + _age + _arrivalTime + _levelOfInjury + "\n";

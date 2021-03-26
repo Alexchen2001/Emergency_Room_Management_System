@@ -1,43 +1,43 @@
 
 [ 
 Name: 	   Jones, Sam
-Age: 	 26
+Age: 	 	 	 26
 Arrival Time: 	 1012
 Injury leve: 	 10
 
 ,  
 Name: 	   Jones, Ming
-Age: 	 19
+Age: 	 	 	 19
 Arrival Time: 	 505
 Injury leve: 	 5
 
 ,  
 Name: 	   Brown, Mike
-Age: 	 42
+Age: 	 	 	 42
 Arrival Time: 	 704
 Injury leve: 	 4
 
 ,  
 Name: 	   Green, Mike
-Age: 	 6
+Age: 	 	 	 6
 Arrival Time: 	 750
 Injury leve: 	 4
 
 ,  
 Name: 	   Tudela, Alan
-Age: 	 59
+Age: 	 	 	 59
 Arrival Time: 	 315
 Injury leve: 	 2
 
 ,  
 Name: 	   Jones, Mike
-Age: 	 42
+Age: 	 	 	 42
 Arrival Time: 	 315
 Injury leve: 	 2
 
 ,  
 Name: 	   Long, Sam
-Age: 	 35
+Age: 	 	 	 35
 Arrival Time: 	 802
 Injury leve: 	 1
 

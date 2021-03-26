@@ -22,19 +22,6 @@ public class AlgoProgram {
         String outputLocation = "data" + File.separator + "Retirement.txt";
         StringBuilder builder = new StringBuilder("\n");
 
-        System.out.println();
-        System.out.println();
-        List<String> list = new ArrayList<String>(6);
-        list.add("Sam");
-        list.add("Cam");
-        list.add("Joe");
-        list.add("Bob");
-        list.add("Abe");
-
-        System.out.println(list);
-        quickSort(list);
-        System.out.println();
-        System.out.println(list);
 
         List<Person> peoplelist = new ArrayList<Person>();
         Person mike1 = new Person("Mike Jones", 42);
@@ -42,7 +29,7 @@ public class AlgoProgram {
         Person mike3 = new Person("Mike Brown", 42);
         Person sam2 = new Person("Sam Long", 35);
         Person sam1 = new Person ("Sam Jones", 26);
-        Person minh = new Person("Ming JOnes", 19);
+        Person minh = new Person("Ming Jones", 26);
 
         peoplelist.add(mike3);
         peoplelist.add(sam1);
@@ -51,9 +38,14 @@ public class AlgoProgram {
         peoplelist.add(mike1);
         peoplelist.add(sam2);
 
+        System.out.println();
+        System.out.println();
+        System.out.println("            Test Program");
+        System.out.println("-----------Before Sorting--------------");
         System.out.println(peoplelist);
         quickSort(peoplelist);
         System.out.println();
+        System.out.println("------------After Sorting---------------");
         System.out.println(peoplelist);
         builder.append(peoplelist);
 
